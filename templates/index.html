@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict Your chances for Heart Attack</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <select name="gender" id="gender" >
+                <option value="" disabled selected>Gender</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+            <input type="number" name="age" id="age" placeholder="Age">
+            <input type="number" name="education" id="education" placeholder="Education(1/2/3/4)">
+            <select name="chain_smoker" id="chain_smoker" >
+                <option value="" disabled selected>Are you chain smoker?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <input type="number" name="cigsPerDay" id="cigsPerDay" placeholder="cigarettes PerDay">
+            <select name="BPMeds" id="BPMeds" >
+                <option value="" disabled selected>Do you take BP medicines?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <select name="prevalentStroke" id="prevalentStroke" >
+                <option value="" disabled selected>Had a Stroke?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <select name="prevalentHyp" id="prevalentHyp" >
+                <option value="" disabled selected>Are you suffering from Hypertension?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <select name="diabetes" id="diabetes" >
+                <option value="" disabled selected>Are you Diabetic?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+
+            <input type="number" name="totChol" id="totChol" placeholder="Cholestrol level">
+            <input type="number" name="sysBP" id="sysBP" placeholder="Upper BP">
+            <input type="number" name="diaBP" id="diaBP"placeholder="Lower BP">
+            <input type="number" name="BMI" id="BMI"placeholder="Body Mass Index">
+            <input type="number" name="heartRate" id="heartRate"placeholder="Hear Beat Rate">
+            <input type="number" name="glucose" id="glucose"placeholder="Glucose level">
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
